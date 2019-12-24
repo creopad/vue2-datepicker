@@ -144,7 +144,7 @@ export default {
   },
   methods: {
     getDaysList() {
-      const la = generateOptions(31, this.dayStep, this.dayOptions).map(num => {
+      return generateOptions(31, this.dayStep, this.dayOptions).map(num => {
         const today = new Date();
         today.setMilliseconds(this.date.getMilliseconds());
         today.setSeconds(this.date.getSeconds());
@@ -153,7 +153,6 @@ export default {
         const value = today.setDate(today.getDate() + num);
         return { value, text: padNumber(num) };
       });
-      return la;
     },
     getHoursList() {
       return generateOptions(this.use12h ? 12 : 24, this.hourStep, this.hourOptions).map(num => {

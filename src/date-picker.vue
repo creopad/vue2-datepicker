@@ -160,9 +160,8 @@ export default {
           duration: {
             // Date to String
             stringify: date => {
-              const today = new Date();
               return date
-                ? `${date.getDate() - today.getDate()} days, ${date.getHours()} hours`
+                ? `${date.getDate() - new Date().getDate()} days, ${date.getHours()} hours`
                 : '';
             },
             // String to Date

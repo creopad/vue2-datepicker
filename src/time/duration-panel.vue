@@ -55,7 +55,7 @@ export default {
     format: {
       default: 'DD HH',
     },
-    timeTitleFormat: {
+    durationTitleFormat: {
       type: String,
       default: 'YYYY-MM-DD',
     },
@@ -109,9 +109,7 @@ export default {
       return getValidDate(this.value, this.defaultValue);
     },
     title() {
-      const titleFormat = this.timeTitleFormat;
-      const date = new Date(this.innerValue);
-      return this.formatDate(date, titleFormat);
+      return this.formatDate(new Date(this.innerValue), this.durationTitleFormat);
     },
     innerForamt() {
       return typeof this.format === 'string' ? this.format : 'DD HH';
